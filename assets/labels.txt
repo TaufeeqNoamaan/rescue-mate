@@ -1,0 +1,4 @@
+0 Drought
+1 Wildfire
+2 Flood 
+3 Earthquake

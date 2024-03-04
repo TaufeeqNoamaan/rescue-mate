@@ -126,31 +126,34 @@ class _HomeState extends State<Home> {
             const SizedBox(height: 15),
             _loading == false
                 ? Column(
-                  children: [
-                    SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: Image.file(_image),
-                    ),
-                    Text(
-                      _disasters[0]['label'].toString().substring(2),
-                      style: GoogleFonts.roboto(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                    children: [
+                      SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: Image.file(_image),
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      "Confidence: ${_disasters[0]['confidence']}",
-                      style: GoogleFonts.roboto(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                      Text(
+                        // _disasters[0]['label'].toString().substring(2),
+                        _disasters[0]['confidence'] > 0.865
+                            ? _disasters[0]['label'].toString().substring(2)
+                            : 'Mums cat',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                  ],
-                )
+                      const SizedBox(height: 10),
+                      Text(
+                        "Confidence: ${_disasters[0]['confidence']}",
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  )
                 : Container(),
           ],
         ),
